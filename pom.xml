@@ -10,10 +10,10 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.company.youtube</groupId>
-  <artifactId>videos</artifactId>
+  <artifactId>channel</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>videos</name>
-  <description>videos</description>
+  <name>channel</name>
+  <description>channels</description>
   <properties>
     <java.version>17</java.version>
     <testcontainers.version>1.17.2</testcontainers.version>

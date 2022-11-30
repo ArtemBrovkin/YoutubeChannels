@@ -1,0 +1,23 @@
+version: "1.0"
+name: "channel"
+services:
+  db:
+    image: "postgres:latest"
+    container_name: pg_db
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=qwe123
+      - POSTGRES_DB=pg_db
+      - POSTGRES_TCP_PORT=555
+
+  app:
+    build: .
+    container_name: app
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db/pg_db
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=qwe123
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
