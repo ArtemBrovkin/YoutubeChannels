@@ -11,10 +11,6 @@ class VideoParserServiceImplTest {
 
   VideoParserServiceImpl service = new VideoParserServiceImpl();
 
-  //  VIDEO_TITLE("(?<=<title>).+(?= - YouTube)"),
-  //  PREVIEW_URL("(?<=\")https:\\/\\/i\\.ytimg\\.com\\/.+?(?=\\\\u)"),
-  //  UPLOAD_DATE("(?<=\"dateText\":\\{\"simpleText\":\").+?(?=\"}}},)");
-
   @Test
   void getVideoTitleTestValid() {
     //arrange
@@ -57,11 +53,12 @@ class VideoParserServiceImplTest {
   @Test
   void getVideoUploadDateTestValid() {
     //arrange
-    service.setPage("\"dateText\":{\"simpleText\":\"_afsf22_fGGG\"}}},");
+    String date = "ДАТАТОПОВАЯ";
+    service.setPage("\"dateText\":{\"simpleText\":\"" + date + " г.");
     //act
     String videoUploadDate = service.getVideoUploadDate();
     //assert
-    assertThat(videoUploadDate).isEqualTo("_afsf22_fGGG");
+    assertThat(videoUploadDate).isEqualTo(date);
   }
 
   @Test
